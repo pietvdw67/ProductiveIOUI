@@ -5,11 +5,11 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams, IAfterGuiAttachedParams } from 'ag-grid-community';
 
 @Component({
-  selector: 'app-grid-detail-and-history-cell-renderer',
-  templateUrl: './grid-detail-and-history-cell-renderer.component.html',
-  styleUrls: ['./grid-detail-and-history-cell-renderer.component.scss']
+  selector: 'app-detail-cell-renderer',
+  templateUrl: './detail-cell-renderer.component.html',
+  styleUrls: ['./detail-cell-renderer.component.scss']
 })
-export class GridDetailAndHistoryCellRendererComponent implements ICellRendererAngularComp, OnDestroy {
+export class DetailCellRendererComponent implements ICellRendererAngularComp, OnDestroy {
 
   private params: any;
   private router: Router;
@@ -24,7 +24,7 @@ export class GridDetailAndHistoryCellRendererComponent implements ICellRendererA
     throw new Error('Method not implemented.');
   }
   agInit(params: ICellRendererParams): void {
-     this.params = params;
+    this.params = params;
   }
   afterGuiAttached?(params?: IAfterGuiAttachedParams): void {
     throw new Error('Method not implemented.');
@@ -36,21 +36,12 @@ export class GridDetailAndHistoryCellRendererComponent implements ICellRendererA
   }
 
   btnDetailClickedHandler(something:any) {
-    this.params.clicked('detail' , this.params.value);
+    this.params.clicked(this.params.value);
 
     // 0 = countDate
     // 1 = manchineId
     var commaParms = String(this.params.value).split(',');    
     this.router.navigate(['/detail',commaParms[0],commaParms[1]]);
-  }
-
-  btnHistoryClickedHandler(something:any) {
-    this.params.clicked('history' , this.params.value);
-
-    // 0 = countDate
-    // 1 = manchineId
-    var commaParms = String(this.params.value).split(',');    
-    this.router.navigate(['/history',commaParms[1],'']);
   }
 
 }

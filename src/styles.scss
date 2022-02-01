@@ -7,7 +7,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .ag-theme-alpine {
     @include ag-theme-alpine((
         // use theme parameters where possible
-        header-background-color: #fc0303,
+        header-background-color: rgb(235, 0, 42),
         alpine-active-color: #ff9696,
         row-hover-color: #ff9696,
         odd-row-background-color: #ffe6e6

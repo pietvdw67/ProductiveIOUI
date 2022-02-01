@@ -25,7 +25,8 @@ export class DashboardTotalsComponent implements OnInit {
 
   itemDetails : ItemDetail[] = [];
   subscription: Subscription | undefined;
-  rowData;  
+  rowData;
+  
 
   columnDefs: ColDef[] = [    
     { field: 'machineId',

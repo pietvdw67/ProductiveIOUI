@@ -14,13 +14,17 @@ import { DashboardTotalsComponent } from './components/dashboard/dashboard-total
 import { GridDetailAndHistoryCellRendererComponent } from './components/gridcomponents/grid-detail-and-history-cell-renderer/grid-detail-and-history-cell-renderer.component';
 import { DetailPageComponent } from './pages/detail/detail-page/detail-page.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { HistoryPageComponent } from './pages/history/history-page/history-page.component';
+import { HistoryComponent } from './components/history/history.component';
+import { DetailCellRendererComponent } from './components/gridcomponents/detail-cell-renderer/detail-cell-renderer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
-    GridDetailAndHistoryCellRendererComponent, DetailPageComponent, DetailComponent
+    GridDetailAndHistoryCellRendererComponent, DetailPageComponent, DetailComponent, HistoryPageComponent, HistoryComponent, 
+    DetailCellRendererComponent
   ],
   imports: [
     BrowserModule,
