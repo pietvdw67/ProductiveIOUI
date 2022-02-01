@@ -101,6 +101,18 @@ export class HistoryComponent implements OnInit {
     })
   }
 
+  public onDownloadReportClick(){
+    const REQUEST_URL = "http://127.0.0.1:8080/dailyhistory/downloadReport/v2/"+ this.machineId;
+
+    this.http.get(REQUEST_URL,{responseType: 'arraybuffer'}).subscribe((data) => {
+      saveAs(new Blob([data],{type:MIME_TYPES["xlsx"]}),"History.xlsx");
+    }, err => {
+      alert ('error');
+      console.log(err);
+    }
+    );
+  }
+
   public getTitle(){   
     return this.title;
   }
