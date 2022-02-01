@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material/material.module';
 
 import { AgGridModule } from 'ag-grid-angular';
+import { AgChartsAngularModule } from 'ag-charts-angular';
 
 import { DashboardMainPageComponent } from 'src/app/pages/dashboard/dashboard-main-page/dashboard-main-page.component';
 import { DashboardTotalsComponent } from './components/dashboard/dashboard-totals/dashboard-totals.component';
@@ -27,6 +28,7 @@ import { DetailComponent } from './components/detail/detail.component';
     HttpClientModule,
     AppRoutingModule,    
     MaterialModule,
+    AgChartsAngularModule,
     AgGridModule.withComponents([])
   ],
   providers: [],

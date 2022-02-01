@@ -25,14 +25,16 @@ export class DashboardTotalsComponent implements OnInit {
 
   itemDetails : ItemDetail[] = [];
   subscription: Subscription | undefined;
-  rowData;
+  rowData;  
 
   columnDefs: ColDef[] = [    
-    { field: 'machineId' },
+    { field: 'machineId',
+      headerName: 'Machine' },
     { field: 'countTime',
       headerName: "Last Update"
     },
-    { field: 'countAmount' },    
+    { field: 'countAmount',
+      headerName: 'Amount' },    
     { headerName: '',  
       valueGetter: dateAndMachineId,  
       flex:1,
@@ -91,16 +93,9 @@ export class DashboardTotalsComponent implements OnInit {
       this.rowData = this.itemDetails;
     });    
   }
-
-  onDetailSelect(id: string){
-    console.log('detail select router with id' + id);
-  }
-
-  onHistorySelect(id:string){
-    console.log('history select router with id' + id);
-  }
 }
 
 var dateAndMachineId = function(parms) {
   return parms.data.countDate + ',' + parms.data.machineId;
 }
+
