@@ -1,0 +1,61 @@
+.topnav {
+  background-color: #ffffff;  
+  height: 100px;
+  box-shadow: 0 4px 2px -2px rgb(0, 0, 0);
+  font-size: 17px;
+  text-decoration: none;
+  color: black;
+  
+}
+
+.menu-btn {  
+  color: black;  
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  
+}
+.dropdown-menu {
+  border: none;
+  position: relative;
+  display: inline-block;
+  
+}
+.menu-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.links,.links-hidden{
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.links-hidden{
+  display: block;
+}
+.links{
+  display: inline-block;
+}
+.links-hidden:hover,.links:hover {
+  color: rgb(235, 0, 42);  
+}
+.dropdown-menu:hover .menu-content {
+  display: block;
+}
+.dropdown-menu:hover .menu-btn {
+  color: rgb(235, 0, 42);
+}
+
+#homeButton {
+  color:black;  
+  font-size: 20px;
+}
+
+#homeButton:hover {
+  color:rgb(235, 0, 42);;
+}

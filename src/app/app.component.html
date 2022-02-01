@@ -1,11 +1,25 @@
-<div class="container">
-    <mat-toolbar color="accent" style="min-height:150px;" >
-      <span>Productive IO</span>    
-    </mat-toolbar>
+<div class="container topnav mt-2">
+  <div class="row">
+    <div class="col-5">
+      <img src="assets/images/stone-stamcor-logo.png" alt="Stone Stamcor logo" height="80">
+    </div>
+    <div class="col-1 align-middle pt-4">      
+      <a href="/" id="homeButton"><i class="fas fa-home"></i></a>      
+    </div>
+    <div class="col-2 pt-3">
+      <div class="dropdown-menu">
+        <button class="menu-btn">Daily Reports</button>
+        <div class="menu-content">
+          <a class="links-hidden" href="#">Currentday</a>
+          <a class="links-hidden" href="#">Yesterday</a>
+          <a class="links-hidden" href="#">Custom</a>
+        </div>
+      </div>
+    </div>  
+  </div>
 </div>
 
-<div class="container mt-2">
+
+<div class="mt-2">
   <router-outlet></router-outlet>
 </div>
-
-
