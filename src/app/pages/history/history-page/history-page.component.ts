@@ -30,9 +30,15 @@ export class HistoryPageComponent implements OnInit {
       this.countDate = '';
     }
 
+    if (this.machineId == 'none' && this.countDate != 'none'){     
+      this.title = 'History for: ' + this.countDate;
+    }
+
     if (this.machineId.length>0 && this.countDate.length==0){      
       this.title = 'History for Machine: ' + this.machineId;  
     } 
+
+
 
   }
 

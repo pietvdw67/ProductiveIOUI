@@ -23,7 +23,6 @@ export class HistoryComponent implements OnInit {
   itemDetails: ItemDetail[] = [];
   machineId: string;
   countDate: string;
-  title:string;
 
   rowData; // for AG Grid
 
@@ -63,8 +62,8 @@ export class HistoryComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { 
-    this.machineId = "";
-    this.countDate = "";
+    this.machineId = '';
+    this.countDate = '';
   }
 
   ngOnInit(): void {
@@ -72,21 +71,40 @@ export class HistoryComponent implements OnInit {
     let machineId = this.route.snapshot.paramMap.get('machineId');
     if (machineId) {
       this.machineId = machineId;
-    }
+    } 
 
     let countDate = this.route.snapshot.paramMap.get('countDate');
     if (countDate) {
       this.countDate = countDate;
     }
 
-    if (this.machineId.length>0 && this.countDate.length==0){      
-      this.title = 'History for Machine: ' + this.machineId;  
-    } 
+    if (this.machineId == 'none' && this.countDate != 'none'){
+     this.fetchItemDetailsPerCountDate();
+     
+    }
 
-    this.fetchItemDetailsPerMahineId();
+    if (this.machineId.length>0 && this.countDate.length==0){            
+      this.fetchItemDetailsPerMachineId();
+    } 
+   
   }
 
-  fetchItemDetailsPerMahineId(){
+  fetchItemDetailsPerCountDate(){    
+    const REQUEST_URL = "http://127.0.0.1:8080/dailyhistoryByDate/v1/" + this.countDate;
+    console.log("request: " + REQUEST_URL);
+    this.http.get<any>(REQUEST_URL).subscribe(data => {         
+      this.itemDetails = [];
+
+      data.forEach(dataRow => {
+        var itemDetail = new ItemDetail(dataRow.id,dataRow.machineid,dataRow.countdate,dataRow.counttime,dataRow.countamount); 
+        this.itemDetails.push(itemDetail);                    
+      });   
+
+      this.rowData = this.itemDetails;
+    })
+  }
+
+  fetchItemDetailsPerMachineId(){
     const REQUEST_URL = "http://127.0.0.1:8080/dailyhistory/v1/" + this.machineId;
     console.log("request: " + REQUEST_URL);
     this.http.get<any>(REQUEST_URL).subscribe(data => {         
@@ -111,10 +129,6 @@ export class HistoryComponent implements OnInit {
       console.log(err);
     }
     );
-  }
-
-  public getTitle(){   
-    return this.title;
   }
 
 }
