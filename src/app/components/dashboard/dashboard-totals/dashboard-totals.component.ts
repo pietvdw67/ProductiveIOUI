@@ -20,7 +20,6 @@ const MIME_TYPES = {
   templateUrl: './dashboard-totals.component.html',
   styleUrls: ['./dashboard-totals.component.scss']
 })
-
 export class DashboardTotalsComponent implements OnInit {
 
   itemDetails : ItemDetail[] = [];

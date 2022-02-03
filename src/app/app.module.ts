@@ -17,6 +17,8 @@ import { DetailComponent } from './components/detail/detail.component';
 import { HistoryPageComponent } from './pages/history/history-page/history-page.component';
 import { HistoryComponent } from './components/history/history.component';
 import { DetailCellRendererComponent } from './components/gridcomponents/detail-cell-renderer/detail-cell-renderer.component';
+import { HistoryCustomComponent } from './pages/history/history-custom/history-custom.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { DetailCellRendererComponent } from './components/gridcomponents/detail-
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
     GridDetailAndHistoryCellRendererComponent, DetailPageComponent, DetailComponent, HistoryPageComponent, HistoryComponent, 
-    DetailCellRendererComponent
+    DetailCellRendererComponent, HistoryCustomComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule,    
+    AppRoutingModule,   
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     AgChartsAngularModule,
     AgGridModule.withComponents([])

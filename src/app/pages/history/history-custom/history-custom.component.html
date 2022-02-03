@@ -1,0 +1,43 @@
+<div class="row" id="pageTitle">
+    <div class="col-6 mx-auto my-auto">
+        <h1 class="mat-display-2 mt-5">Custom report</h1>
+    </div>
+</div>
+
+<div class="container mt-2">    
+    <div class="row mt-5">
+        <div class="col-4 mx-auto border shadow p-3">            
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="dp" [formControl]="date" #dateInputControl >
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp >
+                </mat-datepicker>
+            </mat-form-field>
+
+            <div>
+                <mat-checkbox color=primary (change)="onChkFilterChange()" >Filter by machine id</mat-checkbox>
+            </div>
+
+            <div class="mt-2" *ngIf="doDisplayFilter()">
+                <mat-form-field floatlabel = "always" appearance="outline" > 
+                    <mat-label>Machine id</mat-label>
+                    <mat-select [(value)]="selectedMachine">
+                        <mat-option value="one">1</mat-option>
+                        <mat-option value="two">2</mat-option>
+                        <mat-option value="three">3</mat-option>
+                        <mat-option value="four">4</mat-option>
+                        <mat-option value="five">5</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+
+            <div class="my-3">                     
+                <button mat-raised-button class="fullwidth" color="primary" (click)="onSubmitClick(dateInputControl.value)" ><mat-icon>check_circle_outline</mat-icon>&nbsp;Submit</button>
+            </div>
+        </div>    
+    </div>
+</div>
+
+
+    
