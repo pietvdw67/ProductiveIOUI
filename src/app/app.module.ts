@@ -20,6 +20,7 @@ import { DetailCellRendererComponent } from './components/gridcomponents/detail-
 import { HistoryCustomComponent } from './pages/history/history-custom/history-custom.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MachineDetailsPageComponent } from './pages/machinedetails/machine-details-page/machine-details-page.component';
+import { MachineDetailsComponent } from './components/machineDetails/machine-details/machine-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { MachineDetailsPageComponent } from './pages/machinedetails/machine-deta
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
     GridDetailAndHistoryCellRendererComponent, DetailPageComponent, DetailComponent, HistoryPageComponent, HistoryComponent, 
-    DetailCellRendererComponent, HistoryCustomComponent, MachineDetailsPageComponent
+    DetailCellRendererComponent, HistoryCustomComponent, MachineDetailsPageComponent, MachineDetailsComponent
   ],
   imports: [
     BrowserModule,

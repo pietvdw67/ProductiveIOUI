@@ -1,0 +1,52 @@
+<div class="div border shadow px-2 mt-5 col-5 mx-auto">
+    <mat-card class="my-2" >
+        <mat-card-header>
+            <mat-card-title>New Machine</mat-card-title>            
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field floatlabel = "always"> 
+                    <mat-label>Id</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field floatlabel = "always"> 
+                    <mat-label>Name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" >Add</button>            
+          </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="my-2" >
+        <mat-card-header>
+            <mat-card-title>Update Machine Details</mat-card-title>           
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field floatlabel = "always" appearance="outline"> 
+                    <mat-label>Id</mat-label>
+                    <mat-select>
+                        <div *ngFor="let machineDetailItemModule of machineDetailItemModules">
+                            <mat-option  value="{{ machineDetailItemModule.id}}">{{ machineDetailItemModule.id}}</mat-option>
+                        </div >
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="row mt-1">                
+                <mat-form-field floatlabel = "always">                     
+                    <mat-label>Name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" >Update</button>            
+          </mat-card-actions>
+    </mat-card>
+
+</div>
