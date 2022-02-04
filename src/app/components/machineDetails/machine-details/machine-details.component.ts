@@ -12,14 +12,14 @@ export class MachineDetailsComponent implements OnInit {
   machineDetailItemModules : MachineDetailItemModule[] = [];
   addId :string = '';
   addName:string = '';
+  editId : string = '';
+  editName : string = '';
 
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
 
     this.fetchItemDetails();
-
-    console.log(this.machineDetailItemModules.length);
   }
 
   private fetchItemDetails(){    
@@ -27,6 +27,8 @@ export class MachineDetailsComponent implements OnInit {
 
     this.http.get<any>(REQUEST_URL).subscribe(data => { 
       this.machineDetailItemModules = data;      
+
+      this.machineDetailItemModules.sort();
     });    
   }
 
@@ -39,8 +41,33 @@ export class MachineDetailsComponent implements OnInit {
     return false;
   }
 
-  onEditClick(){
+  canEdit():boolean{
+    if (this.editId && !isNaN(parseInt(this.editId)) && this.editName){      
+      return true;
+    }
 
+    return false;
+  }
+
+  onEditClick(){
+    this.http.post<any>('http://127.0.0.1:8080/machinedetails/v1', { id: this.editId, name: this.editName }).subscribe(data => {
+
+      alert(`Machine: ${this.editId} with name ${this.editName} updated`);      
+
+      this.fetchItemDetails();
+        
+    })
+  }
+
+  onSelectionChange(){
+    
+    if (this.editId){
+      for (let i = 0 ; i < this.machineDetailItemModules.length;i++){
+        if (this.machineDetailItemModules[i].id == parseInt(this.editId)){
+          this.editName = this.machineDetailItemModules[i].name;
+        }
+      }
+    }
   }
 
   onAddClick(){
@@ -51,7 +78,6 @@ export class MachineDetailsComponent implements OnInit {
       this.addName="";
 
       this.fetchItemDetails();
-
         
     })
   }

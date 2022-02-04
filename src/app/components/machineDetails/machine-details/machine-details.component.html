@@ -30,7 +30,7 @@
             <div class="row">
                 <mat-form-field floatlabel = "always" appearance="outline"> 
                     <mat-label>Id</mat-label>
-                    <mat-select>
+                    <mat-select [(value)]="editId" (selectionChange)="onSelectionChange()">
                         <div *ngFor="let machineDetailItemModule of machineDetailItemModules">
                             <mat-option  value="{{ machineDetailItemModule.id}}">{{ machineDetailItemModule.id}}</mat-option>
                         </div >
@@ -40,12 +40,12 @@
             <div class="row mt-1">                
                 <mat-form-field floatlabel = "always">                     
                     <mat-label>Name</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="editName">
                 </mat-form-field>
             </div>
         </mat-card-content>
         <mat-card-actions align="end">
-            <button mat-raised-button color="primary" (click)="onEditClick()">Update</button>            
+            <button mat-raised-button color="primary" [disabled]="!canEdit()" (click)="onEditClick()">Update</button>            
           </mat-card-actions>
     </mat-card>
 
