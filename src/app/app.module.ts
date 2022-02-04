@@ -19,6 +19,7 @@ import { HistoryComponent } from './components/history/history.component';
 import { DetailCellRendererComponent } from './components/gridcomponents/detail-cell-renderer/detail-cell-renderer.component';
 import { HistoryCustomComponent } from './pages/history/history-custom/history-custom.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MachineDetailsPageComponent } from './pages/machinedetails/machine-details-page/machine-details-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
     GridDetailAndHistoryCellRendererComponent, DetailPageComponent, DetailComponent, HistoryPageComponent, HistoryComponent, 
-    DetailCellRendererComponent, HistoryCustomComponent
+    DetailCellRendererComponent, HistoryCustomComponent, MachineDetailsPageComponent
   ],
   imports: [
     BrowserModule,
