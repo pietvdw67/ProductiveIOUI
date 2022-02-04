@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 const MaterialComponents = [
   MatIconModule,
@@ -24,7 +25,8 @@ const MaterialComponents = [
   FormsModule,
   MatCheckboxModule,
   MatDividerModule,
-  MatCardModule
+  MatCardModule,
+  MatTooltipModule
 ]
 
 @NgModule({

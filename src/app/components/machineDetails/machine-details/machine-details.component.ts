@@ -10,6 +10,8 @@ import { MachineDetailItemModule } from "src/app/model/machine-detail-item/machi
 export class MachineDetailsComponent implements OnInit {
 
   machineDetailItemModules : MachineDetailItemModule[] = [];
+  addId :string = '';
+  addName:string = '';
 
   constructor(private http:HttpClient) { }
 
@@ -25,8 +27,33 @@ export class MachineDetailsComponent implements OnInit {
 
     this.http.get<any>(REQUEST_URL).subscribe(data => { 
       this.machineDetailItemModules = data;      
-      console.log(this.machineDetailItemModules.length);
     });    
+  }
+
+  canAdd():boolean{
+    
+    if (this.addId && !isNaN(parseInt(this.addId)) && this.addName){      
+      return true;
+    }
+
+    return false;
+  }
+
+  onEditClick(){
+
+  }
+
+  onAddClick(){
+    this.http.post<any>('http://127.0.0.1:8080/machinedetails/v1', { id: this.addId, name: this.addName }).subscribe(data => {
+
+      alert(`Machine: ${this.addName} added`);
+      this.addId="";
+      this.addName="";
+
+      this.fetchItemDetails();
+
+        
+    })
   }
 
 }

@@ -7,18 +7,18 @@
             <div class="row">
                 <mat-form-field floatlabel = "always"> 
                     <mat-label>Id</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="addId" matTooltip="Must be the number of the ESP controller">
                 </mat-form-field>
             </div>
             <div class="row">
                 <mat-form-field floatlabel = "always"> 
                     <mat-label>Name</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="addName">
                 </mat-form-field>
             </div>
         </mat-card-content>
         <mat-card-actions align="end">
-            <button mat-raised-button color="primary" >Add</button>            
+            <button mat-raised-button color="primary" [disabled]="!canAdd()" (click)="onAddClick()" >Add</button>            
           </mat-card-actions>
     </mat-card>
 
@@ -45,7 +45,7 @@
             </div>
         </mat-card-content>
         <mat-card-actions align="end">
-            <button mat-raised-button color="primary" >Update</button>            
+            <button mat-raised-button color="primary" (click)="onEditClick()">Update</button>            
           </mat-card-actions>
     </mat-card>
 
