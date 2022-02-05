@@ -11,12 +11,18 @@ const MACHINE_DETAIL_URL = 'machinedetails/v1';
 })
 export class MachineDetailsServiceService {
 
+  static MACHINE_DETAIL_KEY = 'MachineDetail';
   private machineDetails: MachineDetail[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {    
   }
 
   getMachineDetails(): MachineDetail[] {
+
+    if (!this.machineDetails || this.machineDetails.length == 0){
+      this.machineDetails = JSON.parse(sessionStorage.getItem(MachineDetailsServiceService.MACHINE_DETAIL_KEY));
+    }
+
     return this.machineDetails;
   }
 
@@ -26,6 +32,8 @@ export class MachineDetailsServiceService {
     this.http.get<any>(REQUEST_URL).subscribe(data => {
       this.machineDetails = data;
       this.machineDetails.sort();   
+
+      this.storeMachineDetails(this.machineDetails);
 
     });    
   }
@@ -41,7 +49,25 @@ export class MachineDetailsServiceService {
     this.http.delete<any>(AppSettings.ENDPOINT + MACHINE_DETAIL_URL + '/' + machineDetail.id).subscribe(data => {
       this.refreshMachineDetails();        
     })
+  }
 
+  getMachineNameFromId(id:number):string {  
+
+    this.getMachineDetails();
+
+    if (this.machineDetails.length>0){
+      for (let machineDetail of this.machineDetails){
+        if (machineDetail.id == id){
+          return machineDetail.name;
+        }
+      }
+    }
+
+    return String(id);
+  }
+
+  private storeMachineDetails(machineDetail:MachineDetail[]){
+    sessionStorage.setItem(MachineDetailsServiceService.MACHINE_DETAIL_KEY,JSON.stringify(machineDetail));
   }
 
   

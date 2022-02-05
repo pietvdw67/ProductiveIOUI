@@ -1,0 +1,23 @@
+<div class="text-end">
+    <button mat-raised-button color="primary" (click)="onDownloadReportClick()" >
+        <mat-icon>file_download</mat-icon>&nbsp; Download report
+    </button>
+</div>
+
+<div *ngIf="byId" class="container mt-2">
+    <ag-grid-angular style="width: 100%; height: 1000px;" class="ag-theme-alpine" 
+      [rowData]="getHistoryDetails()"
+      [columnDefs]="columnDefsById" 
+      [frameworkComponents]="frameworkComponents" 
+      >
+    </ag-grid-angular>
+</div>
+
+<div *ngIf="byDate" class="container mt-2">
+  <ag-grid-angular style="width: 100%; height: 1000px;" class="ag-theme-alpine" 
+    [rowData]="getHistoryDetails()"
+    [columnDefs]="columnDefsByDate" 
+    [frameworkComponents]="frameworkComponents" 
+    >
+  </ag-grid-angular>
+</div>
