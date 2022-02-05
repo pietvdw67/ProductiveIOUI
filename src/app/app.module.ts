@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,8 +19,8 @@ import { HistoryComponent } from './components/history/history.component';
 import { DetailCellRendererComponent } from './components/gridcomponents/detail-cell-renderer/detail-cell-renderer.component';
 import { HistoryCustomComponent } from './pages/history/history-custom/history-custom.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MachineDetailsPageComponent } from './pages/machinedetails/machine-details-page/machine-details-page.component';
-import { MachineDetailsComponent } from './components/machineDetails/machine-details/machine-details.component';
+import { MachineDetailPageComponent } from './machineDetails/page/machine-detail-page/machine-detail-page.component';
+import { MachineDetailComponent } from './machineDetails/component/machine-detail/machine-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { MachineDetailsComponent } from './components/machineDetails/machine-det
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
     GridDetailAndHistoryCellRendererComponent, DetailPageComponent, DetailComponent, HistoryPageComponent, HistoryComponent, 
-    DetailCellRendererComponent, HistoryCustomComponent, MachineDetailsPageComponent, MachineDetailsComponent
+    DetailCellRendererComponent, HistoryCustomComponent, MachineDetailPageComponent, MachineDetailComponent
   ],
   imports: [
     BrowserModule,

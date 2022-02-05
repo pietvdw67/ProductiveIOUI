@@ -5,14 +5,14 @@ import { DashboardMainPageComponent } from 'src/app/pages/dashboard/dashboard-ma
 import { DetailPageComponent } from './pages/detail/detail-page/detail-page.component';
 import { HistoryPageComponent } from './pages/history/history-page/history-page.component';
 import { HistoryCustomComponent } from './pages/history/history-custom/history-custom.component';
-import { MachineDetailsPageComponent } from './pages/machinedetails/machine-details-page/machine-details-page.component';
+import { MachineDetailPageComponent } from 'src/app/machineDetails/page/machine-detail-page/machine-detail-page.component';
 
 const routes: Routes = [
   { path: '', component: DashboardMainPageComponent },
   { path: 'detail/:countDate/:machineId', component: DetailPageComponent },
   { path: 'history/:machineId/:countDate',component: HistoryPageComponent },
   { path: 'historyCustom', component: HistoryCustomComponent },
-  { path: 'machineDetails', component: MachineDetailsPageComponent }
+  { path: 'machineDetails', component: MachineDetailPageComponent }
 ];
 
 @NgModule({

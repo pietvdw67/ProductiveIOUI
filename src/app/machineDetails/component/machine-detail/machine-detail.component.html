@@ -31,8 +31,8 @@
                 <mat-form-field floatlabel = "always" appearance="outline"> 
                     <mat-label>Id</mat-label>
                     <mat-select [(value)]="editId" (selectionChange)="onSelectionChange()">
-                        <div *ngFor="let machineDetailItemModule of machineDetailItemModules">
-                            <mat-option  value="{{ machineDetailItemModule.id}}">{{ machineDetailItemModule.id}}</mat-option>
+                        <div *ngFor="let machineDetail of machineDetailsGet()">
+                            <mat-option  value="{{ machineDetail.id}}">{{ machineDetail.id}}</mat-option>
                         </div >
                     </mat-select>
                   </mat-form-field>
@@ -44,8 +44,11 @@
                 </mat-form-field>
             </div>
         </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-raised-button color="primary" [disabled]="!canEdit()" (click)="onEditClick()">Update</button>            
+        <mat-card-actions align="end" >
+            <div>
+                <button mat-raised-button color="primary" [disabled]="!canEdit()" (click)="onEditClick()">Update</button>            
+                <button mat-raised-button color="primary" [disabled]="!canEdit()" (click)="onDeleteClick()">Delete</button>
+            </div>            
           </mat-card-actions>
     </mat-card>
 
