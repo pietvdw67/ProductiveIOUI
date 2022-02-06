@@ -24,27 +24,28 @@ export class HistoryComponent implements OnInit {
 
   machineId: string = '';
   countDate: string = '';
-  byId:boolean = false;
-  byDate:boolean = false;
+  byId: boolean = false;
+  byDate: boolean = false;
 
   columnDefsById: ColDef[] = [
     {
       field: 'countdate',
-      headerName: 'Date'      
+      headerName: 'Date'
     },
     {
       field: 'countamount',
       headerName: 'Amount',
       sortable: true
     },
-    { headerName: '',  
+    {
+      headerName: '',
       valueGetter: dateAndMachineId,
-      flex:1,
+      flex: 1,
       cellRenderer: 'detailCellRendererComponent',
       cellRendererParams: {
-        clicked: function(functionName:string,field: any) {
+        clicked: function (functionName: string, field: any) {
           // This cannot access the function, navigating in the cell renderer          
-        }        
+        }
       }
     },
   ];
@@ -53,41 +54,42 @@ export class HistoryComponent implements OnInit {
     {
       field: 'machinename',
       headerName: 'Machine Name',
-      flex:2 
+      flex: 2
     },
     {
       field: 'countdate',
-      headerName: 'Date'      
+      headerName: 'Date'
     },
     {
       field: 'countamount',
       headerName: 'Amount',
       sortable: true
     },
-    { headerName: '',  
+    {
+      headerName: '',
       valueGetter: dateAndMachineId,
-      flex:1,
+      flex: 1,
       cellRenderer: 'detailCellRendererComponent',
       cellRendererParams: {
-        clicked: function(functionName:string,field: any) {
+        clicked: function (functionName: string, field: any) {
           // This cannot access the function, navigating in the cell renderer          
-        }        
+        }
       }
     },
   ];
 
   frameworkComponents = {
-    detailCellRendererComponent : DetailCellRendererComponent
+    detailCellRendererComponent: DetailCellRendererComponent
   };
 
-  constructor(private route: ActivatedRoute, private http: HttpClient,private dataViewServiceService : DataViewServiceService) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private dataViewServiceService: DataViewServiceService) { }
 
   ngOnInit(): void {
 
     let machineId = this.route.snapshot.paramMap.get('machineId');
     if (machineId) {
       this.machineId = machineId;
-    } 
+    }
 
     let countDate = this.route.snapshot.paramMap.get('countDate');
     if (countDate) {
@@ -98,12 +100,12 @@ export class HistoryComponent implements OnInit {
       machineid: ${this.machineId}
       countDate: ${this.countDate}`);
 
-    if (this.machineId == 'none' && this.countDate != 'none'){
+    if (this.machineId == 'none' && this.countDate != 'none') {
       this.byDate = true;
       this.dataViewServiceService.historyRefreshByCountDate(this.countDate);
     }
-    
-    if (this.machineId && !this.countDate){
+
+    if (this.machineId && !this.countDate) {
       this.byId = true;
       this.dataViewServiceService.historyRefreshById(parseInt(this.machineId));
     }
@@ -114,23 +116,30 @@ export class HistoryComponent implements OnInit {
     return this.dataViewServiceService.historyGet();
   }
 
-  onDownloadReportClick(){
-    /*
-    const REQUEST_URL = "http://127.0.0.1:8080/dailyhistory/downloadReport/v2/"+ this.machineId;
+  onDownloadReportClick() {
+    if (this.byId){
+      this.dataViewServiceService.historyDownloadReportById( parseInt(this.machineId));
+    }
 
-    this.http.get(REQUEST_URL,{responseType: 'arraybuffer'}).subscribe((data) => {
-      saveAs(new Blob([data],{type:MIME_TYPES["xlsx"]}),"History.xlsx");
+    if (this.byDate){
+      this.dataViewServiceService.historyDownloadReportByDate(this.countDate);
+    }
+    /*
+    const REQUEST_URL = "http://127.0.0.1:8080/dailyhistory/downloadReport/v2/" + this.machineId;
+
+    this.http.get(REQUEST_URL, { responseType: 'arraybuffer' }).subscribe((data) => {
+      saveAs(new Blob([data], { type: MIME_TYPES["xlsx"] }), "History.xlsx");
     }, err => {
-      alert ('error');
+      alert('error');
       console.log(err);
     }
     );
-    */
+*/
   }
 
 }
 
-var dateAndMachineId = function(parms) {
+var dateAndMachineId = function (parms) {
   return parms.data.countdate + ',' + parms.data.machineid;
 }
 

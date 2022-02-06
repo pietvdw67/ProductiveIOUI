@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { saveAs } from 'file-saver';
 
 import { AppSettings } from 'src/app/settings/AppSettings';
 import { HistoryView } from 'src/app/history/model/HistoryView';
 
 const HISTORY_URL = 'dailyhistory/v1';
 const HISTORY_BY_DATE_URL = 'dailyhistoryByDate/v1';
+
+const MIME_TYPES = {
+  xls: 'application/vnd.ms-excel',
+  xlsx: 'application/vnc.openxmlformats-officedocument.spreadsheetxml.sheet'
+}
 
 @Injectable({
   providedIn: 'root'
@@ -25,44 +31,38 @@ export class HistoryService {
     });
   }
 
-  refreshHistoryByCountDate(countDate: string){
+  refreshHistoryByCountDate(countDate: string) {
     const REQUEST_URL = AppSettings.ENDPOINT + HISTORY_BY_DATE_URL + '/' + countDate;
     this.http.get<any>(REQUEST_URL).subscribe(data => {
-      this.historyViews = data;      
+      this.historyViews = data;
     });
 
   }
 
-  fetchItemDetailsPerCountDate() {
-    /*
-    const REQUEST_URL = "http://127.0.0.1:8080/dailyhistoryByDate/v1/" + this.countDate;
-    console.log("request: " + REQUEST_URL);
-    this.http.get<any>(REQUEST_URL).subscribe(data => {         
-      this.itemDetails = [];
+  downloadReportById(id: number) {
 
-      data.forEach(dataRow => {
-        var itemDetail = new ItemDetail(dataRow.id,dataRow.machineid,dataRow.countdate,dataRow.counttime,dataRow.countamount); 
-        this.itemDetails.push(itemDetail);                    
-      });   
+    const REQUEST_URL = AppSettings.ENDPOINT + 'dailyhistory/downloadReport/v1/' + String(id);
 
-      this.rowData = this.itemDetails;
-    })
-    */
-  }
-
-  onDownloadReportClick() {
-    /*
-    const REQUEST_URL = "http://127.0.0.1:8080/dailyhistory/downloadReport/v2/"+ this.machineId;
- 
-    this.http.get(REQUEST_URL,{responseType: 'arraybuffer'}).subscribe((data) => {
-      saveAs(new Blob([data],{type:MIME_TYPES["xlsx"]}),"History.xlsx");
+    this.http.get(REQUEST_URL, { responseType: 'arraybuffer' }).subscribe((data) => {
+      saveAs(new Blob([data], { type: MIME_TYPES["xlsx"] }), "History.xlsx");
     }, err => {
-      alert ('error');
+      alert('error');
       console.log(err);
     }
     );
   }
-  */
+
+  downloadReportByDate(countDate: string) {
+
+    const REQUEST_URL = AppSettings.ENDPOINT + 'dailyhistory/downloadByDateReport/v1/' + countDate;
+
+    this.http.get(REQUEST_URL, { responseType: 'arraybuffer' }).subscribe((data) => {
+      saveAs(new Blob([data], { type: MIME_TYPES["xlsx"] }), "History.xlsx");
+    }, err => {
+      alert('error');
+      console.log(err);
+    }
+    );
   }
 
   getHistory() {

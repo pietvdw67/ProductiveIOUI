@@ -48,5 +48,13 @@ export class DataViewServiceService {
   historyRefreshByCountDate(countDate:string){
     this.historyService.refreshHistoryByCountDate(countDate);
   }
+
+  historyDownloadReportById(id:number){
+    this.historyService.downloadReportById(id);
+  }
+
+  historyDownloadReportByDate(countDate: string){
+    this.historyService.downloadReportByDate(countDate);
+  }
   
 }
