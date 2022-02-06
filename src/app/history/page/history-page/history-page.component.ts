@@ -41,7 +41,7 @@ export class HistoryPageComponent implements OnInit {
     }
 
     if (this.machineId.length>0 && this.countDate.length==0){      
-      this.title = 'History for Machine: ' + this.machineName;  
+      this.title = 'History for: ' + this.machineName;  
     } 
   }
 

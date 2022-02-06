@@ -29,3 +29,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height:150px;    
 }
 
+#headerTitle {
+    position:absolute;
+    top:180px;
+    left:450px;
+    color:white;
+    font-size: 50px;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}

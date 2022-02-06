@@ -41,10 +41,10 @@ export class DetailPageComponent implements OnInit {
     }
 
     if (this.machineId.length > 0 && this.countDate.length == 0) {
-      this.title = 'History for Machine: ' + this.machineName;
+      this.title = 'History for: ' + this.machineName;
     }
 
-    this.title = 'Details for machine: ' + this.machineName + ' for date: ' + this.countDate
+    this.title = 'Details for: ' + this.machineName + ' for date: ' + this.countDate
   }
 
 }
