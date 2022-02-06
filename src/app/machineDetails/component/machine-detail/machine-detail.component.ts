@@ -14,6 +14,8 @@ export class MachineDetailComponent implements OnInit {
   addName:string = '';
   editId : string = '';
   editName : string = '';
+  editAverage : string = '';
+  editMargin : string = '';
 
   constructor(private dataViewServiceService :DataViewServiceService) { }
 
@@ -38,10 +40,31 @@ export class MachineDetailComponent implements OnInit {
     return false;
   }
 
+  canDisplayEditControls(){
+    if (this.editId && !isNaN(parseInt(this.editId))){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   onEditClick(){
     let machineDetail = new MachineDetail();
     machineDetail.id = parseInt(this.editId);
     machineDetail.name = this.editName;
+    
+    if (!isNaN(parseInt(this.editAverage))){
+      machineDetail.averageval = parseInt(this.editAverage);
+    } else {
+      machineDetail.averageval = 0;
+    }
+
+    if (!isNaN(parseInt(this.editMargin))){
+      machineDetail.marginval = parseInt(this.editMargin);
+    } else {
+      machineDetail.marginval = 0;
+    }
+
 
     this.dataViewServiceService.machineDetailsPost(machineDetail);
   }
@@ -49,8 +72,7 @@ export class MachineDetailComponent implements OnInit {
   onDeleteClick(){
     let machineDetail = new MachineDetail();
     machineDetail.id = parseInt(this.editId);
-    machineDetail.name = this.editName;
-
+    
     this.dataViewServiceService.machineDetailsDelete(machineDetail);
 
     this.editName = '';
@@ -62,6 +84,19 @@ export class MachineDetailComponent implements OnInit {
       for (let i = 0 ; i < this.dataViewServiceService.machineDetailsGet().length;i++){
         if (this.dataViewServiceService.machineDetailsGet()[i].id == parseInt(this.editId)){
           this.editName = this.dataViewServiceService.machineDetailsGet()[i].name;
+
+          if (this.dataViewServiceService.machineDetailsGet()[i].averageval){
+            this.editAverage = String(this.dataViewServiceService.machineDetailsGet()[i].averageval);
+          } else {
+            this.editAverage = '0';
+          }
+
+          if (this.dataViewServiceService.machineDetailsGet()[i].marginval){
+            this.editMargin = String(this.dataViewServiceService.machineDetailsGet()[i].marginval);
+          } else {
+            this.editMargin = '0';
+          }
+
         }
       }
     }

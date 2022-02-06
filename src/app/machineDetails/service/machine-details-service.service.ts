@@ -31,15 +31,26 @@ export class MachineDetailsServiceService {
 
     this.http.get<any>(REQUEST_URL).subscribe(data => {
       this.machineDetails = data;
-      this.machineDetails.sort();   
-
+      this.machineDetails.sort();
       this.storeMachineDetails(this.machineDetails);
 
     });    
   }
 
   postMachineDetails(machineDetail:MachineDetail){
-    this.http.post<any>(AppSettings.ENDPOINT + MACHINE_DETAIL_URL, { id: machineDetail.id, name: machineDetail.name }).subscribe(data => {
+
+    console.log(`id: ${machineDetail.id}
+    name: ${machineDetail.name}
+    averageval:${machineDetail.averageval}
+    marginval:${machineDetail.marginval}
+    `);
+
+    this.http.post<any>(AppSettings.ENDPOINT + MACHINE_DETAIL_URL, { 
+      id: machineDetail.id, 
+      name: machineDetail.name,
+      averageval: machineDetail.averageval,
+      marginval: machineDetail.marginval })
+      .subscribe(data => {
       this.refreshMachineDetails();        
     })
 

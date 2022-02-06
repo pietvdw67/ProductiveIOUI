@@ -37,11 +37,26 @@
                     </mat-select>
                   </mat-form-field>
             </div>
-            <div class="row mt-1">                
-                <mat-form-field floatlabel = "always">                     
-                    <mat-label>Name</mat-label>
-                    <input matInput [(ngModel)]="editName">
-                </mat-form-field>
+            <div class="row mt-1" [hidden] = "!canDisplayEditControls()">        
+                <div class="row mb-2">
+                    <mat-form-field floatlabel = "always">   
+                        <mat-label>Name</mat-label>
+                        <input matInput [(ngModel)]="editName">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field floatlabel = "always"> 
+                        <mat-label>Average</mat-label>
+                        <input matInput [(ngModel)]="editAverage">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field floatlabel = "always"> 
+                        <mat-label>Margin</mat-label>
+                        <input matInput [(ngModel)]="editMargin">
+                    </mat-form-field>
+                </div>
+
             </div>
         </mat-card-content>
         <mat-card-actions align="end" >
