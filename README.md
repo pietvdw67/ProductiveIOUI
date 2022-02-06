@@ -27,5 +27,6 @@ Version 13
 
     Verify Dependancies
         npm install
-
+# DB Changes to make
+    Machine details table
     
