@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistoryCustomComponent } from './history-custom.component';
+import { HistoryCustomPageComponent } from './history-custom-page.component';
 
-describe('HistoryCustomComponent', () => {
-  let component: HistoryCustomComponent;
-  let fixture: ComponentFixture<HistoryCustomComponent>;
+describe('HistoryCustomPageComponent', () => {
+  let component: HistoryCustomPageComponent;
+  let fixture: ComponentFixture<HistoryCustomPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HistoryCustomComponent ]
+      declarations: [ HistoryCustomPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HistoryCustomComponent);
+    fixture = TestBed.createComponent(HistoryCustomPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

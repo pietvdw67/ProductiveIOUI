@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import {FormControl,ReactiveFormsModule} from '@angular/forms';
+
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import * as _moment from 'moment';
-
 const moment = _moment;
+
+import { MachineDetailsServiceService} from 'src/app/machineDetails/service/machine-details-service.service';
+import { MachineDetail } from 'src/app/machineDetails/model/MachineDetail';
 
 export const MY_FORMATS = {
   parse: {
@@ -21,9 +23,9 @@ export const MY_FORMATS = {
 };
 
 @Component({
-  selector: 'app-history-custom',
-  templateUrl: './history-custom.component.html',
-  styleUrls: ['./history-custom.component.scss'],
+  selector: 'app-history-custom-page',
+  templateUrl: './history-custom-page.component.html',
+  styleUrls: ['./history-custom-page.component.scss'],
   providers: [
     {
       provide: DateAdapter,
@@ -34,13 +36,13 @@ export const MY_FORMATS = {
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ],
 })
-export class HistoryCustomComponent implements OnInit {
+export class HistoryCustomPageComponent implements OnInit {
 
   doFilterMachine :boolean = false;
   selectedMachine : string;
   date = new FormControl(moment());
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private machineDetailsServiceService : MachineDetailsServiceService) { }
 
   ngOnInit(): void {
   }
@@ -78,15 +80,12 @@ export class HistoryCustomComponent implements OnInit {
   // Tempory until it get's replaced with names
   private getMachineId(selectedValue:string):string {
 
-    switch (selectedValue) {
-      case 'one': { return '1'; break; }
-      case 'two': { return '2'; break; }
-      case 'three': { return '3'; break; }
-      case 'four': { return '4'; break; }
-      case 'five': { return '6'; break; }
-    }
+    return selectedValue;
+  }
 
-    return '';
+  getMachineDetails() : MachineDetail[] {
+    return this.machineDetailsServiceService.getMachineDetails();
+
   }
 
 }

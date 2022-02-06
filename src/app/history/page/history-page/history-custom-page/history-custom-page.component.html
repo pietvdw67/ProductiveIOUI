@@ -20,18 +20,16 @@
                     </mat-form-field>
 
                     <div>
-                        <mat-checkbox color=primary (change)="onChkFilterChange()" >Filter by machine id</mat-checkbox>
+                        <mat-checkbox color=primary (change)="onChkFilterChange()" >Filter by machine</mat-checkbox>
                     </div>
 
                     <div class="mt-2" *ngIf="doDisplayFilter()">
                         <mat-form-field floatlabel = "always" appearance="outline" > 
-                            <mat-label>Machine id</mat-label>
+                            <mat-label>Machine</mat-label>
                             <mat-select [(value)]="selectedMachine">
-                                <mat-option value="one">1</mat-option>
-                                <mat-option value="two">2</mat-option>
-                                <mat-option value="three">3</mat-option>
-                                <mat-option value="four">4</mat-option>
-                                <mat-option value="five">5</mat-option>
+                                <div *ngFor="let machineDetail of getMachineDetails()">
+                                    <mat-option value="{{ machineDetail.id }}">{{ machineDetail.name }}</mat-option>
+                                </div>
                             </mat-select>
                         </mat-form-field>
                     </div>
@@ -45,6 +43,3 @@
         </div>    
     </div>
 </div>
-
-
-    

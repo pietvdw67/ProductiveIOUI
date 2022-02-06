@@ -4,14 +4,14 @@ import { DashboardMainPageComponent } from 'src/app/pages/dashboard/dashboard-ma
 
 import { DetailPageComponent } from 'src/app/details/page/detail-page/detail-page.component';
 import { HistoryPageComponent } from './history/page/history-page/history-page.component';
-import { HistoryCustomComponent } from './pages/history/history-custom/history-custom.component';
+import { HistoryCustomPageComponent } from 'src/app/history/page/history-page/history-custom-page/history-custom-page.component';
 import { MachineDetailPageComponent } from 'src/app/machineDetails/page/machine-detail-page/machine-detail-page.component';
 
 const routes: Routes = [
   { path: '', component: DashboardMainPageComponent },
   { path: 'detail/:countDate/:machineId', component: DetailPageComponent },
   { path: 'history/:machineId/:countDate',component: HistoryPageComponent },
-  { path: 'historyCustom', component: HistoryCustomComponent },
+  { path: 'historyCustom', component: HistoryCustomPageComponent },
   { path: 'machineDetails', component: MachineDetailPageComponent }
 ];
 

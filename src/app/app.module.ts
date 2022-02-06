@@ -17,11 +17,11 @@ import { DetailPageComponent } from 'src/app/details/page/detail-page/detail-pag
 import { HistoryPageComponent } from 'src/app/history/page/history-page/history-page.component';
 import { HistoryComponent } from 'src/app/history/component/history/history.component';
 import { DetailCellRendererComponent } from './components/gridcomponents/detail-cell-renderer/detail-cell-renderer.component';
-import { HistoryCustomComponent } from './pages/history/history-custom/history-custom.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MachineDetailPageComponent } from './machineDetails/page/machine-detail-page/machine-detail-page.component';
 import { MachineDetailComponent } from './machineDetails/component/machine-detail/machine-detail.component';
 import { DetailComponent } from './details/component/detail/detail.component';
+import { HistoryCustomPageComponent } from './history/page/history-page/history-custom-page/history-custom-page.component';
 
 export function init_app(appLoadService: AppLoaderService) {
   return () => appLoadService.initializeApp();
@@ -33,7 +33,7 @@ export function init_app(appLoadService: AppLoaderService) {
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
     GridDetailAndHistoryCellRendererComponent, DetailPageComponent, HistoryPageComponent, HistoryComponent, 
-    DetailCellRendererComponent, HistoryCustomComponent, MachineDetailPageComponent, MachineDetailComponent, DetailComponent
+    DetailCellRendererComponent, MachineDetailPageComponent, MachineDetailComponent, DetailComponent, HistoryCustomPageComponent
   ],
   imports: [
     BrowserModule,
