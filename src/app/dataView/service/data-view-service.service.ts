@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import { MachineDetail } from 'src/app/machineDetails/model/MachineDetail';
-import { Detail } from 'src/app/details/model/Detail';
+
 import { HistoryView } from 'src/app/history/model/HistoryView';
+import { DetailView } from 'src/app/details/model/DetailView';
 
 import { MachineDetailsServiceService } from 'src/app/machineDetails/service/machine-details-service.service';
 import { HistoryService } from 'src/app/history/service/history.service';
+import { DetailService } from 'src/app/details/service/detail.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,8 @@ import { HistoryService } from 'src/app/history/service/history.service';
 export class DataViewServiceService {
 
   constructor(private machineDetailsServiceService : MachineDetailsServiceService,
-    private historyService :HistoryService) { 
+    private historyService :HistoryService,
+    private detailService:DetailService ) { 
 
   }
 
@@ -55,6 +58,18 @@ export class DataViewServiceService {
 
   historyDownloadReportByDate(countDate: string){
     this.historyService.downloadReportByDate(countDate);
+  }
+
+  detailRefresh(countDate: string,machineId:number,callback:any){
+    this.detailService.refreshDetails(countDate,machineId,callback);
+  }
+
+  detailGet(){
+    return this.detailService.getDetails();
+  }
+
+  detailsDownloadReport(countDate:string,machineId:number){
+    this.detailService.downloadReport(countDate,machineId);
   }
   
 }

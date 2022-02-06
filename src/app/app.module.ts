@@ -13,8 +13,7 @@ import { AgChartsAngularModule } from 'ag-charts-angular';
 import { DashboardMainPageComponent } from 'src/app/pages/dashboard/dashboard-main-page/dashboard-main-page.component';
 import { DashboardTotalsComponent } from './components/dashboard/dashboard-totals/dashboard-totals.component';
 import { GridDetailAndHistoryCellRendererComponent } from './components/gridcomponents/grid-detail-and-history-cell-renderer/grid-detail-and-history-cell-renderer.component';
-import { DetailPageComponent } from './pages/detail/detail-page/detail-page.component';
-import { DetailComponent } from './components/detail/detail.component';
+import { DetailPageComponent } from 'src/app/details/page/detail-page/detail-page.component';
 import { HistoryPageComponent } from 'src/app/history/page/history-page/history-page.component';
 import { HistoryComponent } from 'src/app/history/component/history/history.component';
 import { DetailCellRendererComponent } from './components/gridcomponents/detail-cell-renderer/detail-cell-renderer.component';
@@ -22,6 +21,7 @@ import { HistoryCustomComponent } from './pages/history/history-custom/history-c
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MachineDetailPageComponent } from './machineDetails/page/machine-detail-page/machine-detail-page.component';
 import { MachineDetailComponent } from './machineDetails/component/machine-detail/machine-detail.component';
+import { DetailComponent } from './details/component/detail/detail.component';
 
 export function init_app(appLoadService: AppLoaderService) {
   return () => appLoadService.initializeApp();
@@ -32,8 +32,8 @@ export function init_app(appLoadService: AppLoaderService) {
     AppComponent,
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
-    GridDetailAndHistoryCellRendererComponent, DetailPageComponent, DetailComponent, HistoryPageComponent, HistoryComponent, 
-    DetailCellRendererComponent, HistoryCustomComponent, MachineDetailPageComponent, MachineDetailComponent
+    GridDetailAndHistoryCellRendererComponent, DetailPageComponent, HistoryPageComponent, HistoryComponent, 
+    DetailCellRendererComponent, HistoryCustomComponent, MachineDetailPageComponent, MachineDetailComponent, DetailComponent
   ],
   imports: [
     BrowserModule,

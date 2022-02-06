@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { saveAs } from 'file-saver';
 
 import { ColDef } from 'ag-grid-community';
 import { DetailCellRendererComponent } from 'src/app/components/gridcomponents/detail-cell-renderer/detail-cell-renderer.component';
@@ -9,11 +7,6 @@ import { DetailCellRendererComponent } from 'src/app/components/gridcomponents/d
 import { DataViewServiceService } from 'src/app/dataView/service/data-view-service.service';
 
 import { HistoryView } from '../../model/HistoryView';
-
-const MIME_TYPES = {
-  xls: 'application/vnd.ms-excel',
-  xlsx: 'application/vnc.openxmlformats-officedocument.spreadsheetxml.sheet'
-}
 
 @Component({
   selector: 'app-history',
@@ -82,7 +75,7 @@ export class HistoryComponent implements OnInit {
     detailCellRendererComponent: DetailCellRendererComponent
   };
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private dataViewServiceService: DataViewServiceService) { }
+  constructor(private route: ActivatedRoute, private dataViewServiceService: DataViewServiceService) { }
 
   ngOnInit(): void {
 
@@ -95,10 +88,6 @@ export class HistoryComponent implements OnInit {
     if (countDate) {
       this.countDate = countDate;
     }
-
-    console.log(`opening history with
-      machineid: ${this.machineId}
-      countDate: ${this.countDate}`);
 
     if (this.machineId == 'none' && this.countDate != 'none') {
       this.byDate = true;
@@ -124,17 +113,7 @@ export class HistoryComponent implements OnInit {
     if (this.byDate){
       this.dataViewServiceService.historyDownloadReportByDate(this.countDate);
     }
-    /*
-    const REQUEST_URL = "http://127.0.0.1:8080/dailyhistory/downloadReport/v2/" + this.machineId;
 
-    this.http.get(REQUEST_URL, { responseType: 'arraybuffer' }).subscribe((data) => {
-      saveAs(new Blob([data], { type: MIME_TYPES["xlsx"] }), "History.xlsx");
-    }, err => {
-      alert('error');
-      console.log(err);
-    }
-    );
-*/
   }
 
 }
