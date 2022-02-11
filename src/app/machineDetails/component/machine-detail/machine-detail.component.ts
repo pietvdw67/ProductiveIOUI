@@ -15,7 +15,7 @@ export class MachineDetailComponent implements OnInit {
   editId : string = '';
   editName : string = '';
   editAverage : string = '';
-  editMargin : string = '';
+  editMargin : string = '';  
 
   constructor(private dataViewServiceService :DataViewServiceService) { }
 

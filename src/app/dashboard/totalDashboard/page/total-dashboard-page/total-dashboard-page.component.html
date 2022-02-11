@@ -1,0 +1,12 @@
+<div class="row" id="pageTitle">
+    <img src="assets/images/banner.png" alt="Logo">        
+</div>
+<h1 id="headerTitle" >Overview</h1>    
+
+<div class="container">
+
+    <div *ngFor="let item of getTotalDashboardItems()">
+        <app-dashboard-item machineid="{{item.id}}"></app-dashboard-item>
+    </div>
+    
+</div>

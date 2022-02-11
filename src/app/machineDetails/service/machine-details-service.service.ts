@@ -14,12 +14,12 @@ export class MachineDetailsServiceService {
   static MACHINE_DETAIL_KEY = 'MachineDetail';
   private machineDetails: MachineDetail[] = [];
 
-  constructor(private http: HttpClient) {    
+  constructor(private http: HttpClient) {
   }
 
   getMachineDetails(): MachineDetail[] {
 
-    if (!this.machineDetails || this.machineDetails.length == 0){
+    if (!this.machineDetails || this.machineDetails.length == 0) {
       this.machineDetails = JSON.parse(sessionStorage.getItem(MachineDetailsServiceService.MACHINE_DETAIL_KEY));
     }
 
@@ -34,41 +34,38 @@ export class MachineDetailsServiceService {
       this.machineDetails.sort();
       this.storeMachineDetails(this.machineDetails);
 
-    });    
+    });
   }
 
-  postMachineDetails(machineDetail:MachineDetail){
+  postMachineDetails(machineDetail: MachineDetail) {
 
-    console.log(`id: ${machineDetail.id}
-    name: ${machineDetail.name}
-    averageval:${machineDetail.averageval}
-    marginval:${machineDetail.marginval}
-    `);
-
-    this.http.post<any>(AppSettings.ENDPOINT + MACHINE_DETAIL_URL, { 
-      id: machineDetail.id, 
+    this.http.post<any>(AppSettings.ENDPOINT + MACHINE_DETAIL_URL, {
+      id: machineDetail.id,
       name: machineDetail.name,
       averageval: machineDetail.averageval,
-      marginval: machineDetail.marginval })
+      marginval: machineDetail.marginval,
+      goalamt: machineDetail.goalamt,
+      uploadmin: machineDetail.uploadmin
+    })
       .subscribe(data => {
-      this.refreshMachineDetails();        
-    })
+        this.refreshMachineDetails();
+      })
 
   }
 
-  deleteMachineDetails(machineDetail:MachineDetail){
+  deleteMachineDetails(machineDetail: MachineDetail) {
     this.http.delete<any>(AppSettings.ENDPOINT + MACHINE_DETAIL_URL + '/' + machineDetail.id).subscribe(data => {
-      this.refreshMachineDetails();        
+      this.refreshMachineDetails();
     })
   }
 
-  getMachineNameFromId(id:number):string {  
+  getMachineNameFromId(id: number): string {
 
     this.getMachineDetails();
 
-    if (this.machineDetails.length>0){
-      for (let machineDetail of this.machineDetails){
-        if (machineDetail.id == id){
+    if (this.machineDetails.length > 0) {
+      for (let machineDetail of this.machineDetails) {
+        if (machineDetail.id == id) {
           return machineDetail.name;
         }
       }
@@ -77,10 +74,10 @@ export class MachineDetailsServiceService {
     return String(id);
   }
 
-  private storeMachineDetails(machineDetail:MachineDetail[]){
-    sessionStorage.setItem(MachineDetailsServiceService.MACHINE_DETAIL_KEY,JSON.stringify(machineDetail));
+  private storeMachineDetails(machineDetail: MachineDetail[]) {
+    sessionStorage.setItem(MachineDetailsServiceService.MACHINE_DETAIL_KEY, JSON.stringify(machineDetail));
   }
 
-  
+
 }
 

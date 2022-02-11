@@ -22,6 +22,8 @@ import { MachineDetailPageComponent } from './machineDetails/page/machine-detail
 import { MachineDetailComponent } from './machineDetails/component/machine-detail/machine-detail.component';
 import { DetailComponent } from './details/component/detail/detail.component';
 import { HistoryCustomPageComponent } from './history/page/history-page/history-custom-page/history-custom-page.component';
+import { TotalDashboardPageComponent } from './dashboard/totalDashboard/page/total-dashboard-page/total-dashboard-page.component';
+import { DashboardItemComponent } from './dashboard/totalDashboard/component/dashboard-item/dashboard-item.component';
 
 export function init_app(appLoadService: AppLoaderService) {
   return () => appLoadService.initializeApp();
@@ -33,7 +35,7 @@ export function init_app(appLoadService: AppLoaderService) {
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
     GridDetailAndHistoryCellRendererComponent, DetailPageComponent, HistoryPageComponent, HistoryComponent, 
-    DetailCellRendererComponent, MachineDetailPageComponent, MachineDetailComponent, DetailComponent, HistoryCustomPageComponent
+    DetailCellRendererComponent, MachineDetailPageComponent, MachineDetailComponent, DetailComponent, HistoryCustomPageComponent, TotalDashboardPageComponent, DashboardItemComponent
   ],
   imports: [
     BrowserModule,

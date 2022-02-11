@@ -32,19 +32,21 @@ export class DetailPageComponent implements OnInit {
       this.countDate = '';
     }
 
+    if (this.countDate = 'none'){
+      this.countDate = '';
+    }
+
     if (this.machineId) {
       this.machineName = this.dataViewService.machineDetailNameFromId(parseInt(this.machineId));
     }
 
     if (this.machineId == 'none' && this.countDate != 'none') {
-      this.title = 'History for: ' + this.countDate;
+      this.title = 'Detals for: ' + this.countDate;
+    } else if (this.machineId.length > 0 && this.countDate.length == 0) {
+      this.title = 'Details for: ' + this.machineName;
+    } else {
+      this.title = 'Details for: ' + this.machineName + ' for date: ' + this.countDate
     }
-
-    if (this.machineId.length > 0 && this.countDate.length == 0) {
-      this.title = 'History for: ' + this.machineName;
-    }
-
-    this.title = 'Details for: ' + this.machineName + ' for date: ' + this.countDate
   }
 
 }

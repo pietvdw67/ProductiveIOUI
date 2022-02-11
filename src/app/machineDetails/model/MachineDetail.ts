@@ -4,4 +4,6 @@ export class MachineDetail {
     name: string;
     averageval: number;
     marginval: number;
+    goalamt: number;
+    uploadmin: number;
 }

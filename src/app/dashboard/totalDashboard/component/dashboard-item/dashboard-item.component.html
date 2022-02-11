@@ -1,0 +1,27 @@
+<mat-card class="mb-3" [ngClass]="getClass()">
+    <mat-card-title>{{ machineName }} </mat-card-title>  
+    <mat-card-subtitle>Last Update: {{lastUpdate}} </mat-card-subtitle>
+    
+    <mat-card-content>
+        <div class="row">
+            <div class="col-4">
+                Yesterday's average: {{average}}
+            </div>
+            <div class="col-4">
+                Total for the day: {{totalForDay}}
+            </div>
+            <div class="col-4">
+                Last Update amount: {{lastUpdateAmount}}
+            </div>
+        </div>
+       
+    </mat-card-content>
+    
+    <mat-card-actions align="end">
+        <div>
+            <button mat-raised-button color="primary" (click)="btnDetailClickedHandler()">Detail</button>
+            <button mat-raised-button color="primary" (click)="btnHistoryClickedHandler()">History</button>
+        </div>
+    
+    </mat-card-actions>
+</mat-card>
