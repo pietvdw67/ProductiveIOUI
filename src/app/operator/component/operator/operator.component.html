@@ -1,0 +1,49 @@
+<div class="div border shadow px-2 mt-5 col-5 mx-auto">
+    <mat-card class="my-2" >
+        <mat-card-header>
+            <mat-card-title>Add Operator</mat-card-title>            
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field floatlabel = "always"> 
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="addOperatorName">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" [disabled]="!canAdd()" (click)="onAddClick()" >Add</button>            
+          </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="my-2" *ngFor="let operatorItem of operatorsGet()">
+        <mat-card-header>            
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field floatlabel = "always"> 
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="operatorItem.operatorname" #input>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field floatlabel = "always" appearance="outline"> 
+                    <mat-label>Machine</mat-label>                    
+                    <mat-select #select [value]="operatorItem.machineid">
+                        <mat-option *ngFor="let machineDetail of machineDetailsGet()" [value]="machineDetail.id">
+                        {{machineDetail.name}}</mat-option>                        
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <div>
+                <button mat-raised-button color="primary" (click)="onEditClick(operatorItem.id,input.value,select.value)" >Update</button>            
+                <button mat-raised-button color="primary" (click)="onDeleteClick(operatorItem.id)" >Delete</button>
+            </div>
+          </mat-card-actions>
+    </mat-card>
+
+
+    
+</div>

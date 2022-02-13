@@ -5,12 +5,15 @@ import { HistoryPageComponent } from './history/page/history-page/history-page.c
 import { HistoryCustomPageComponent } from 'src/app/history/page/history-page/history-custom-page/history-custom-page.component';
 import { MachineDetailPageComponent } from 'src/app/machineDetails/page/machine-detail-page/machine-detail-page.component';
 import { TotalDashboardPageComponent} from 'src/app/dashboard/totalDashboard/page/total-dashboard-page/total-dashboard-page.component';
+import { OperatorPageComponent } from 'src/app/operator/page/operator-page/operator-page.component';
+
 
 const routes: Routes = [
   { path: '', component: TotalDashboardPageComponent },
   { path: 'detail/:countDate/:machineId', component: DetailPageComponent },
   { path: 'history/:machineId/:countDate',component: HistoryPageComponent },
   { path: 'historyCustom', component: HistoryCustomPageComponent },
+  { path: 'operators', component: OperatorPageComponent},
   { path: 'machineDetails', component: MachineDetailPageComponent },
 ];
 

@@ -32,6 +32,7 @@ export class MachineDetailsServiceService {
     this.http.get<any>(REQUEST_URL).subscribe(data => {
       this.machineDetails = data;
       this.machineDetails.sort();
+
       this.storeMachineDetails(this.machineDetails);
 
     });

@@ -24,6 +24,8 @@ import { DetailComponent } from './details/component/detail/detail.component';
 import { HistoryCustomPageComponent } from './history/page/history-page/history-custom-page/history-custom-page.component';
 import { TotalDashboardPageComponent } from './dashboard/totalDashboard/page/total-dashboard-page/total-dashboard-page.component';
 import { DashboardItemComponent } from './dashboard/totalDashboard/component/dashboard-item/dashboard-item.component';
+import { OperatorPageComponent } from './operator/page/operator-page/operator-page.component';
+import { OperatorComponent } from './operator/component/operator/operator.component';
 
 export function init_app(appLoadService: AppLoaderService) {
   return () => appLoadService.initializeApp();
@@ -35,7 +37,7 @@ export function init_app(appLoadService: AppLoaderService) {
     DashboardMainPageComponent,
     DashboardTotalsComponent,    
     GridDetailAndHistoryCellRendererComponent, DetailPageComponent, HistoryPageComponent, HistoryComponent, 
-    DetailCellRendererComponent, MachineDetailPageComponent, MachineDetailComponent, DetailComponent, HistoryCustomPageComponent, TotalDashboardPageComponent, DashboardItemComponent
+    DetailCellRendererComponent, MachineDetailPageComponent, MachineDetailComponent, DetailComponent, HistoryCustomPageComponent, TotalDashboardPageComponent, DashboardItemComponent, OperatorPageComponent, OperatorComponent
   ],
   imports: [
     BrowserModule,

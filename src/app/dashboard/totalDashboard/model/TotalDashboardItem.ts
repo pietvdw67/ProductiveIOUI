@@ -8,5 +8,5 @@ export class TotalDashboardItem {
     average:number;
     margin:number;
     productionPersentage:number;
-
+    operatorName:string;
 }
