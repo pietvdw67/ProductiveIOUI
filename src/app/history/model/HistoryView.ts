@@ -5,4 +5,5 @@ export class HistoryView {
     machinename: string;
     countdate: string;
     countamount: number;
+    operatorname: string;
 }

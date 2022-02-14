@@ -50,6 +50,10 @@ export class HistoryComponent implements OnInit {
       flex: 2
     },
     {
+      field: 'operatorname',
+      headerName: 'Operator'
+    },
+    {
       field: 'countdate',
       headerName: 'Date'
     },

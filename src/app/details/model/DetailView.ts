@@ -5,4 +5,5 @@ export class DetailView {
     countdate : string;
     counttime : string;
     countamount : string;    
+    operatorName : string;
 }

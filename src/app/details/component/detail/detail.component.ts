@@ -22,6 +22,12 @@ export class DetailComponent implements OnInit {
 
   columnDefs: ColDef[] = [
     {
+      field: 'operatorName',
+      headerName: 'Operator',
+      sortable: true,
+      flex: 3
+    },
+    {
       field: 'countdate',
       headerName: 'Date',
       flex: 3
