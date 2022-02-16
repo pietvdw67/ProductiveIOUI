@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { interval, Subscription } from 'rxjs';
 
 import { ColDef } from 'ag-grid-community';
-
 import { DataViewServiceService } from 'src/app/dataView/service/data-view-service.service';
-
-import { DetailView } from '../../model/DetailView';
 
 @Component({
   selector: 'app-detail',
@@ -17,7 +13,6 @@ export class DetailComponent implements OnInit {
 
   machineId: string = '';
   countDate: string = '';
-  subscription: Subscription | undefined;
   options: any | undefined;
 
   columnDefs: ColDef[] = [
@@ -63,15 +58,7 @@ export class DetailComponent implements OnInit {
 
     this.dataViewServiceService.detailRefresh(this.countDate, parseInt(this.machineId), () => {
       this.refreshGrid();
-    });
-
-    const source = interval(5000);
-    this.subscription = source.subscribe(val => {
-      this.dataViewServiceService.detailRefresh(this.countDate, parseInt(this.machineId), () => {
-        this.refreshGrid();
-      });
-    }
-    );
+    });    
   }
 
   onDownloadReportClick() {
