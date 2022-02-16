@@ -44,6 +44,11 @@ export class DashboardItemComponent implements OnInit {
   }
 
   getClass(){
+
+    if (this.lastUpdateAmount == 0){
+      return 'standby';
+    }
+
     if ( (this.lastUpdateAmount >= this.average + this.margin)){
       return 'above';
     } else {
