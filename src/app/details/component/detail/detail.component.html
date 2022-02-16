@@ -2,11 +2,18 @@
     <ag-charts-angular [options]="options">
     </ag-charts-angular>
   </div>
-  
-  <div class="text-end">
-    <button mat-raised-button color="primary" (click)="onDownloadReportClick()">
-      <mat-icon>file_download</mat-icon>&nbsp; Download report
-    </button>
+
+  <div class="row">
+    <div class="col-8">
+    </div>
+    <div class="col-2">
+      <app-current-total class="ml-5" [machineId]="machineId" [countDate]="countDate" ></app-current-total>
+    </div>
+    <div class="col-2 text-end">
+      <button mat-raised-button color="primary" (click)="onDownloadReportClick()">
+        <mat-icon>file_download</mat-icon>&nbsp; Download report
+      </button>
+    </div>
   </div>
   
   <div class="container mt-2">

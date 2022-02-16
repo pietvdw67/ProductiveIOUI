@@ -49,4 +49,14 @@ export class DetailService {
   getDetails(){
     return this.detailViews;
   }
+
+  getCurrentTotal(countDate:string,machineId:number,callback:any){
+    const REQUEST_URL = AppSettings.ENDPOINT + DETAIL_URL + '/currenttotal/v1/' + countDate + '/' + machineId;
+
+    this.http.get<any>(REQUEST_URL).subscribe(data => {
+      let currentTotal = data;
+      
+      callback(currentTotal);
+    });
+  }
 }

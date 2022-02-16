@@ -36,6 +36,10 @@ export class DataViewServiceService {
     this.detailService.downloadReport(countDate, machineId);
   }
 
+  detailCurrentTotal(countDate:string,machineId:number,callback:any){
+    this.detailService.getCurrentTotal(countDate, machineId, callback);
+  }
+
   historyGet(): HistoryView[] {
     return this.historyService.getHistory();
   }
