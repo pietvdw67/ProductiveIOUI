@@ -17,6 +17,7 @@ export class DashboardItemComponent implements OnInit {
   totalForDay;
   lastUpdateAmount;
   average;
+  currentAverage;
   margin;
   operatorName;
 
@@ -41,6 +42,7 @@ export class DashboardItemComponent implements OnInit {
     this.average = dashboardItem.average;
     this.margin = dashboardItem.margin      
     this.operatorName = dashboardItem.operatorName;  
+    this.currentAverage = dashboardItem.currentAverage;
   }
 
   getClass(){

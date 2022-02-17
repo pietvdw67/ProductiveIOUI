@@ -6,6 +6,7 @@ export class TotalDashboardItem {
     totalForDay:number;
     lastUpdateAmount:number;
     average:number;
+    currentAverage:number;
     margin:number;
     productionPersentage:number;
     operatorName:string;
