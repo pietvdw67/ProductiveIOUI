@@ -39,6 +39,7 @@ export const MY_FORMATS = {
 export class HistoryCustomPageComponent implements OnInit {
 
   doFilterMachine :boolean = false;
+  doFilterDate:boolean = false;
   selectedMachine : string;
   date = new FormControl(moment());
 
@@ -62,12 +63,26 @@ export class HistoryCustomPageComponent implements OnInit {
     }
   }
 
-  onChkFilterChange(){
+  onSubmitMachineOnlyClick(){
+
+    this.router.navigate(['/history',this.selectedMachine,'']);
+
+  }
+
+  onChkFilterDateChange(){
+    this.doFilterDate = !this.doFilterDate
+  }
+
+  onChkFilterMachineChange(){
     this.doFilterMachine = !this.doFilterMachine
   }
 
-  doDisplayFilter(){
-    return this.doFilterMachine;
+  hasSelectedMachine():boolean {
+    if (this.selectedMachine){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   private reformatDate(dateValue:string):string {

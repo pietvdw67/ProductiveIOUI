@@ -29,7 +29,7 @@
         <mat-card-content>
             <div class="row">
                 <mat-form-field floatlabel = "always" appearance="outline"> 
-                    <mat-label>Id</mat-label>
+                    <mat-label>Machine</mat-label>
                     <mat-select [(value)]="editId" (selectionChange)="onSelectionChange()">
                         <div *ngFor="let machineDetail of machineDetailsGet()">
                             <mat-option  value="{{ machineDetail.id}}">{{ machineDetail.name}}</mat-option>

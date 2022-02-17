@@ -22,6 +22,10 @@ export class HistoryComponent implements OnInit {
 
   columnDefsById: ColDef[] = [
     {
+      field: 'operatorname',
+      headerName: 'Operator'
+    },
+    {
       field: 'countdate',
       headerName: 'Date'
     },
@@ -79,7 +83,8 @@ export class HistoryComponent implements OnInit {
     detailCellRendererComponent: DetailCellRendererComponent
   };
 
-  constructor(private route: ActivatedRoute, private dataViewServiceService: DataViewServiceService) { }
+  constructor(private route: ActivatedRoute, private dataViewServiceService: DataViewServiceService) { 
+  }
 
   ngOnInit(): void {
 

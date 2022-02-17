@@ -51,7 +51,9 @@ export class DashboardTotalsComponent implements OnInit {
     gridDetailAndHistoryCellRendererComponent : GridDetailAndHistoryCellRendererComponent
   };
 
-  constructor(private http:HttpClient,private router: Router) { }
+  constructor(private http:HttpClient,private router: Router) { 
+    console.log('running this component');
+  }
 
   ngOnInit(): void {
     this.fetchItemDetails();
