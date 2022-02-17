@@ -20,6 +20,7 @@ export class DashboardItemComponent implements OnInit {
   currentAverage;
   margin;
   operatorName;
+  inativeMinutes;
 
   constructor(private dataViewServiceService : DataViewServiceService,private router: Router) { 
 
@@ -43,6 +44,7 @@ export class DashboardItemComponent implements OnInit {
     this.margin = dashboardItem.margin      
     this.operatorName = dashboardItem.operatorName;  
     this.currentAverage = dashboardItem.currentAverage;
+    this.inativeMinutes = dashboardItem.inativeMinutes;
   }
 
   getClass(){
