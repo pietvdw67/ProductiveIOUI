@@ -20,7 +20,7 @@ export class TotalDashboardPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const source = interval(5000);
+    const source = interval(30000);
     this.subscription = source.subscribe(val => this.dataViewServiceService.totalDashboardRefresh());
   }
 

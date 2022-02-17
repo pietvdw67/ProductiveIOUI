@@ -35,6 +35,11 @@ export class HistoryComponent implements OnInit {
       sortable: true
     },
     {
+      field: 'note',
+      headerName: 'note',
+      sortable: true
+    },
+    {
       headerName: '',
       valueGetter: dateAndMachineId,
       flex: 1,
@@ -64,6 +69,11 @@ export class HistoryComponent implements OnInit {
     {
       field: 'countamount',
       headerName: 'Amount',
+      sortable: true
+    },
+    {
+      field: 'note',
+      headerName: 'note',
       sortable: true
     },
     {

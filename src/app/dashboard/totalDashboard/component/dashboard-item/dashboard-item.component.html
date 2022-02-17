@@ -1,14 +1,21 @@
 <mat-card class="mb-1" [ngClass]="getClass()">
     <mat-card-title>
         <div class="row">
-            <div class="col-10">
+            <div class="col-11">
                 {{ machineName }}
+            </div>
+            <div class="col-1 align-self-end" *ngIf="hasNote()">                  
+                <mat-icon matTooltip="{{note}}" matTooltipHideDelay="10000" (click)="onShowNoteClick()" >info</mat-icon>                
             </div>
         </div>
     </mat-card-title>
     <mat-card-subtitle>Last Update: {{lastUpdate}} </mat-card-subtitle>
 
     <mat-card-content>
+        <div *ngIf="showNote" class="my-3 p-2 border shadow 1px">
+            <p>Note:</p>
+            {{note}}
+        </div>
         <div class="row">
             <div class="col-10">
                 <div class="row">

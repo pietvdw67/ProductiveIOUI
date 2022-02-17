@@ -6,4 +6,5 @@ export class MachineDetail {
     marginval: number;
     goalamt: number;
     uploadmin: number;
+    note:string;
 }

@@ -21,6 +21,8 @@ export class DashboardItemComponent implements OnInit {
   margin;
   operatorName;
   inativeMinutes;
+  note;
+  showNote:boolean = false;
 
   constructor(private dataViewServiceService : DataViewServiceService,private router: Router) { 
 
@@ -45,6 +47,7 @@ export class DashboardItemComponent implements OnInit {
     this.operatorName = dashboardItem.operatorName;  
     this.currentAverage = dashboardItem.currentAverage;
     this.inativeMinutes = dashboardItem.inativeMinutes;
+    this.note = dashboardItem.note;
   }
 
   getClass(){
@@ -66,6 +69,18 @@ export class DashboardItemComponent implements OnInit {
 
   btnHistoryClickedHandler() {
     this.router.navigate(['/history',this.machineid,'']);
+  }
+
+  hasNote():boolean {
+    if (this.note){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  onShowNoteClick(){
+    this.showNote = !this.showNote;
   }
 
 

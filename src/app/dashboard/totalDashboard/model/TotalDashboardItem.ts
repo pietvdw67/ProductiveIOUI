@@ -11,4 +11,5 @@ export class TotalDashboardItem {
     productionPersentage:number;
     operatorName:string;
     inativeMinutes:number;
+    note:string;
 }

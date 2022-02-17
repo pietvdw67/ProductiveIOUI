@@ -6,4 +6,5 @@ export class HistoryView {
     countdate: string;
     countamount: number;
     operatorname: string;
+    note:string;
 }

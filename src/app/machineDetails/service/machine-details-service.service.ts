@@ -46,7 +46,8 @@ export class MachineDetailsServiceService {
       averageval: machineDetail.averageval,
       marginval: machineDetail.marginval,
       goalamt: machineDetail.goalamt,
-      uploadmin: machineDetail.uploadmin
+      uploadmin: machineDetail.uploadmin,
+      note: machineDetail.note
     })
       .subscribe(data => {
         this.refreshMachineDetails();

@@ -17,6 +17,7 @@ export class MachineDetailComponent implements OnInit {
   editAverage : string = '';
   editMargin : string = '';  
   editUploadmin : string = '';
+  editNote : string = '';
 
   constructor(private dataViewServiceService :DataViewServiceService) { }
 
@@ -53,6 +54,7 @@ export class MachineDetailComponent implements OnInit {
     let machineDetail = new MachineDetail();
     machineDetail.id = parseInt(this.editId);
     machineDetail.name = this.editName;
+    machineDetail.note = this.editNote;
     
     if (!isNaN(parseInt(this.editAverage))){
       machineDetail.averageval = parseInt(this.editAverage);
@@ -108,6 +110,12 @@ export class MachineDetailComponent implements OnInit {
             this.editUploadmin = String(this.dataViewServiceService.machineDetailsGet()[i].uploadmin);
           } else {
             this.editUploadmin = '0';
+          }
+
+          if (this.dataViewServiceService.machineDetailsGet()[i].note){
+            this.editNote = String(this.dataViewServiceService.machineDetailsGet()[i].note);
+          } else {
+            this.editNote = '';
           }
 
         }
