@@ -32,12 +32,16 @@
                     <mat-label>Id</mat-label>
                     <mat-select [(value)]="editId" (selectionChange)="onSelectionChange()">
                         <div *ngFor="let machineDetail of machineDetailsGet()">
-                            <mat-option  value="{{ machineDetail.id}}">{{ machineDetail.id}}</mat-option>
+                            <mat-option  value="{{ machineDetail.id}}">{{ machineDetail.name}}</mat-option>
                         </div >
                     </mat-select>
                   </mat-form-field>
             </div>
-            <div class="row mt-1" [hidden] = "!canDisplayEditControls()">        
+            <div class="row mt-1" [hidden] = "!canDisplayEditControls()">   
+                <div class="row mb-2">                    
+                    <mat-label>Id</mat-label>
+                    <mat-label>{{editId}}</mat-label>                                            
+                </div>     
                 <div class="row mb-2">
                     <mat-form-field floatlabel = "always">   
                         <mat-label>Name</mat-label>
