@@ -23,21 +23,50 @@ export class HistoryComponent implements OnInit {
   columnDefsById: ColDef[] = [
     {
       field: 'operatorname',
-      headerName: 'Operator'
+      headerName: 'Operator',
+      resizable:true,
+      flex: 1
     },
     {
       field: 'countdate',
-      headerName: 'Date'
+      headerName: 'Date',
+      resizable:true,
+      flex: 1
     },
     {
       field: 'countamount',
       headerName: 'Amount',
-      sortable: true
+      resizable:true,
+      sortable: true,
+      flex: 1
+    },
+    {
+      field: 'average',
+      headerName: 'Average Per Min',
+      resizable:true,
+      sortable: true,
+      flex: 1
+    },
+    {
+      field: 'inactive',
+      headerName: 'Inactive Hours',
+      resizable:true,
+      sortable: true,
+      flex: 1
+    },
+    {
+      field: 'offline',
+      headerName: 'Offline Hours',
+      resizable:true,
+      sortable: true,
+      flex: 1
     },
     {
       field: 'note',
       headerName: 'note',
-      sortable: true
+      resizable:true,
+      sortable: true,
+      flex: 1
     },
     {
       headerName: '',
@@ -56,25 +85,55 @@ export class HistoryComponent implements OnInit {
     {
       field: 'machinename',
       headerName: 'Machine Name',
-      flex: 2
+      resizable:true,
+      flex: 1
     },
     {
       field: 'operatorname',
-      headerName: 'Operator'
+      headerName: 'Operator',
+      resizable:true,
+      flex: 1
     },
     {
       field: 'countdate',
-      headerName: 'Date'
+      headerName: 'Date',
+      resizable:true,
+      flex: 1
     },
     {
       field: 'countamount',
       headerName: 'Amount',
-      sortable: true
+      resizable:true,
+      sortable: true,
+      flex: 1
+    },
+    {
+      field: 'average',
+      headerName: 'Average Per Min',
+      resizable:true,
+      sortable: true,
+      flex: 1
+    },
+    {
+      field: 'inactive',
+      headerName: 'Inactive Hours',
+      resizable:true,
+      sortable: true,
+      flex: 1
+    },
+    {
+      field: 'offline',
+      headerName: 'Offline Hours',
+      resizable:true,
+      sortable: true,
+      flex: 1
     },
     {
       field: 'note',
       headerName: 'note',
-      sortable: true
+      resizable:true,
+      sortable: true,
+      flex: 1
     },
     {
       headerName: '',

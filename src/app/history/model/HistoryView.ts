@@ -7,4 +7,7 @@ export class HistoryView {
     countamount: number;
     operatorname: string;
     note:string;
+    average:number;
+    inactive:number;
+    offline:number;
 }
