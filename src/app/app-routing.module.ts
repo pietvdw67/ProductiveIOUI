@@ -6,15 +6,16 @@ import { HistoryCustomPageComponent } from 'src/app/history/page/history-page/hi
 import { MachineDetailPageComponent } from 'src/app/machineDetails/page/machine-detail-page/machine-detail-page.component';
 import { TotalDashboardPageComponent} from 'src/app/dashboard/totalDashboard/page/total-dashboard-page/total-dashboard-page.component';
 import { OperatorPageComponent } from 'src/app/operator/page/operator-page/operator-page.component';
-
+import { SettingsPageComponent } from 'src/app/settings/page/settings-page/settings-page.component';
 
 const routes: Routes = [
-  { path: '', component: TotalDashboardPageComponent },
+  { path: 'settings', component: SettingsPageComponent},
   { path: 'detail/:countDate/:machineId', component: DetailPageComponent },
   { path: 'history/:machineId/:countDate',component: HistoryPageComponent },
   { path: 'historyCustom', component: HistoryCustomPageComponent },
   { path: 'operators', component: OperatorPageComponent},
   { path: 'machineDetails', component: MachineDetailPageComponent },
+  { path: '', component: TotalDashboardPageComponent },
 ];
 
 @NgModule({

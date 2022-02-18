@@ -4,7 +4,7 @@
       <img src="assets/images/stone-stamcor-logo.png" alt="Stone Stamcor logo" height="80">
     </div>
     <div class="col-7 align-middle pt-4">      
-      <a href="/" id="homeButton"><i class="fas fa-home"></i></a>      
+      <a routerLink="/" id="homeButton"><i class="fas fa-home"></i></a>      
     
       &nbsp;
       <img src="assets/images/line.png">
@@ -13,8 +13,8 @@
       <div class="dropdown-menu">
         <button class="menu-btn">Reports<mat-icon>expand_more</mat-icon></button>
         <div class="menu-content">
-          <a class="links-hidden" href="history/none/yesterday">Yesterday</a>
-          <a class="links-hidden" href="historyCustom">Custom</a>
+          <a class="links-hidden" routerLink="history/none/yesterday">Yesterday</a>
+          <a class="links-hidden" routerLink="historyCustom">Custom</a>
         </div>
       </div>
 
@@ -24,8 +24,9 @@
       <div class="dropdown-menu">
         <button class="menu-btn">Setup<mat-icon>expand_more</mat-icon></button>
         <div class="menu-content">
-          <a class="links-hidden" href="machineDetails">Machine details</a>
-          <a class="links-hidden" href="operators">Operators</a>
+          <a class="links-hidden" routerLink="machineDetails">Machine details</a>
+          <a class="links-hidden" routerLink="operators">Operators</a>
+          <a class="links-hidden" routerLink="settings">Settings</a>
         </div>
       </div>  
 

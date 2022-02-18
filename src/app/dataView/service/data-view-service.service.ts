@@ -12,6 +12,8 @@ import { OperatorService } from 'src/app/operator/service/operator.service';
 import { OperatorItem } from 'src/app/operator/model/OperatorItem';
 import { TotalDashboardServiceService } from 'src/app/dashboard/totalDashboard/service/total-dashboard-service.service';
 import { TotalDashboardItem } from 'src/app/dashboard/totalDashboard/model/TotalDashboardItem';
+import { SettingsConfigService } from 'src/app/settings/service/settings-config.service';
+import { SettingsConfig } from 'src/app/settings/model/SettingsConfig';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,8 @@ export class DataViewServiceService {
     private historyService: HistoryService,
     private detailService: DetailService,
     private totalDashboardService: TotalDashboardServiceService,
-    private operatorservice: OperatorService) { }
+    private operatorservice: OperatorService,
+    private settingsConfigService: SettingsConfigService) { }
 
   detailRefresh(countDate: string, machineId: number, callback: any) {
     this.detailService.refreshDetails(countDate, machineId, callback);
@@ -94,6 +97,14 @@ export class DataViewServiceService {
 
   operatorPost(operatorItem: OperatorItem) {
     this.operatorservice.postOperator(operatorItem);
+  }
+
+  settingsConfigGet(callback:any) {
+    this.settingsConfigService.getSettingsConfig(callback);
+  }
+
+  settingsConfigPost(settingsConfig: SettingsConfig){
+    this.settingsConfigService.postSettingsConfig(settingsConfig);
   }
 
   totalDashboardRefresh() {
