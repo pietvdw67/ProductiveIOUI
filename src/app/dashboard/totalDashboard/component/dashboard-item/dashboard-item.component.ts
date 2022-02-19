@@ -20,7 +20,7 @@ export class DashboardItemComponent implements OnInit {
   currentAverage;
   margin;
   operatorName;
-  inativeMinutes;
+  inativeHours;
   note;
   showNote:boolean = false;
 
@@ -46,14 +46,14 @@ export class DashboardItemComponent implements OnInit {
     this.margin = dashboardItem.margin      
     this.operatorName = dashboardItem.operatorName;  
     this.currentAverage = dashboardItem.currentAverage;
-    this.inativeMinutes = dashboardItem.inativeMinutes;
+    this.inativeHours = dashboardItem.inativeHours;
     this.note = dashboardItem.note;
   }
 
   getClass(){
 
     if (this.lastUpdateAmount == 0){
-      return 'standby';
+      return 'inactive';
     }
 
     if ( (this.lastUpdateAmount >= this.average + this.margin)){

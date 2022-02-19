@@ -10,6 +10,6 @@ export class TotalDashboardItem {
     margin:number;
     productionPersentage:number;
     operatorName:string;
-    inativeMinutes:number;
+    inativeHours:number;
     note:string;
 }
