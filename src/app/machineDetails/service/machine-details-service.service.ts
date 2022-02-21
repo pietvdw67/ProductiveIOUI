@@ -65,7 +65,7 @@ export class MachineDetailsServiceService {
 
     this.getMachineDetails();
 
-    if (this.machineDetails.length > 0) {
+    if (this.machineDetails && this.machineDetails.length > 0) {
       for (let machineDetail of this.machineDetails) {
         if (machineDetail.id == id) {
           return machineDetail.name;
